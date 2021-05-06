@@ -1,0 +1,41 @@
+.post {
+    margin-top: 10px;
+    -webkit-box-shadow: 0 2px 10px -5px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px -5px rgba(0,0,0,0.5);
+    animation: fadeIn 400ms linear;
+}
+
+.image-slide {
+    width: 100%;
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#audioContainer{
+    width: 100%;
+    background: #F1F3F4;
+}
+
+#showEmptyImage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+}
+
+#showEmptyImage{
+    color: #ccc;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0.5;
+    }to{
+        opacity: 1;
+    }
+}
+

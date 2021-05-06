@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Nuevo post
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item [routerLink] ="['/normal-post']">
+    <ion-icon slot="start" name="document-text"></ion-icon>
+    <ion-label>
+      <h2>Nomal post</h2>
+    </ion-label>
+  </ion-item>
+  <ion-item (click) = "redirigirIApost('/traduccion')">
+    <ion-icon slot="start" name="chatbubble-ellipses"></ion-icon>
+    <ion-label>
+      <h2>Traducción</h2>
+    </ion-label>
+  </ion-item>
+  <ion-item (click) = "redirigirIApost('/estudio-lenguaje')">
+    <ion-icon slot="start" name="reader"></ion-icon>
+    <ion-label>
+      <h2>Estudio de lenguaje</h2>
+    </ion-label>
+  </ion-item>
+  <ion-item (click) = "redirigirIApost('/texto-discurso')">
+    <ion-icon slot="start" name="megaphone"></ion-icon>
+    <ion-label>
+      <h2>Texto a discurso</h2>
+    </ion-label>
+  </ion-item>
+  <ion-item (click) = "redirigirIApost('/discurso-texto')">
+    <ion-icon slot="start" name="mic"></ion-icon>
+    <ion-label>
+      <h2>Discurso a texto</h2>
+    </ion-label>
+  </ion-item>
+  <ion-item (click) = "redirigirIApost('/reconocimiento-visual')">
+    <ion-icon slot="start" name="image"></ion-icon>
+    <ion-label>
+      <h2>Reconomiento de imagen</h2>
+    </ion-label>
+  </ion-item>
+
+</ion-content>

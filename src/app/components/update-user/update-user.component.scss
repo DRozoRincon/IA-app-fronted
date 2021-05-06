@@ -1,0 +1,33 @@
+#content{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    width: 80%;
+    max-width: 300px;
+}
+
+.form .msjErrContainer{
+    height: 37px;
+    width: 100%;
+    font-size: 13px;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    text-align: center;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    align-items: center;
+    color:  #f44336;
+}
+
+.form .button{
+    margin: 10px auto;
+    display: block;
+    width: 130px;
+}

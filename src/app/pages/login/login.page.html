@@ -1,0 +1,75 @@
+<ion-content>
+  <!-- <h1 class="tituloApp">IA app</h1> -->
+  <img class="circle" src="/assets/circulo.svg"/>
+  <img class="logo" src="/assets/ia.svg"/>
+  <ion-slides id="slideContainer" #slidesAccount>
+    <ion-slide class="slide">
+      <h1 class="tituloSlide">Ingresa</h1>
+      <h5 class="subtitleSlide" >Hola, bienvenido!</h5>
+      <form [formGroup]="formLogin" class="form"  (ngSubmit) = "logIn()">
+        <ion-item>
+          <ion-label position = "floating">Correo</ion-label>
+          <ion-input type="text" formControlName = "email" ></ion-input>
+        </ion-item>
+        <div class="msjErrContainer">
+          <span *ngIf="formLogin.get('email').dirty && formLogin.get('email').hasError('required')">El email es requerido.</span>
+          <span *ngIf="formLogin.get('email').dirty && formLogin.get('email').hasError('maxlength')">El email debe ser menor a 51 caracteres.</span>
+          <span *ngIf="formLogin.get('email').dirty && formLogin.get('email').hasError('pattern')">Debe ser un email valido</span>
+        </div>
+        <ion-item>
+          <ion-label position = "floating">Contraseña</ion-label>
+          <ion-input type="password" formControlName = "contraseña"></ion-input>
+        </ion-item>
+        <div class="msjErrContainer">
+          <span *ngIf="formLogin.get('contraseña').dirty && formLogin.get('contraseña').hasError('required')">La contraseña es requerida.</span>
+          <span *ngIf="formLogin.get('contraseña').dirty && formLogin.get('contraseña').hasError('maxlength')">La contraseña debe ser mayor a 5 caracteres.</span>
+          <span *ngIf="formLogin.get('contraseña').dirty && formLogin.get('contraseña').hasError('minlength')">La contraseña debe ser menor a 15 caracteres.</span>
+          <span *ngIf="formLogin.get('contraseña').dirty && formLogin.get('contraseña').hasError('pattern')">Al menos 1 minuscula, mayuscula y numero</span>
+        </div>
+        <ion-button shape="round" expand="full" type="submit" [disabled]="formLogin.invalid" class="button">Ingresar</ion-button>
+        <p (click) = "mostrarRegistro()" class="preguntaSobreCuenta">¿No tienes una cuenta? <span>Registrate</span></p>
+      </form>
+    </ion-slide>
+    <ion-slide class="slide">
+      <h1 class="tituloSlide">Registrate</h1>
+      <h5 class="subtitleSlide" >Hola, comencemos!</h5>
+      <form [formGroup]="formRegistro" class="form" (ngSubmit)="registrarUsuario()">
+        <ion-item>
+          <ion-select placeholder = "Avatar" formControlName="avatar">
+            <ion-select-option value="avatar-f.svg">Femenino</ion-select-option>
+            <ion-select-option value="avatar-m.svg">Masculino</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position = "floating">Correo</ion-label>
+          <ion-input type="email" formControlName = "email"></ion-input>
+        </ion-item>
+        <div class="msjErrContainer">
+          <span *ngIf="formRegistro.get('email').dirty && formRegistro.get('email').hasError('required')">El email es requerido.</span>
+          <span *ngIf="formRegistro.get('email').dirty && formRegistro.get('email').hasError('maxlength')">El emaol debe ser menor a 51 caracteres.</span>
+          <span *ngIf="formRegistro.get('email').dirty && formRegistro.get('email').hasError('pattern')">Debe ser un email valido</span>
+        </div>
+        <ion-item>
+          <ion-label position = "floating">Nombre de usuario</ion-label>
+          <ion-input type="text" formControlName = "nombre"></ion-input>
+        </ion-item>
+        <div class="msjErrContainer">
+          <span *ngIf="formRegistro.get('nombre').dirty && formRegistro.get('nombre').hasError('minlength')">El nombre de usuario debe ser mayor a 1 caracter.</span>
+          <span *ngIf="formRegistro.get('nombre').dirty && formRegistro.get('nombre').hasError('maxlength')">El nombre de usuario debe ser menor a 51 caracteres.</span>
+        </div>
+        <ion-item>
+          <ion-label position = "floating">Contraseña</ion-label>
+          <ion-input type="password" formControlName = "contraseña"></ion-input>
+        </ion-item>
+        <div class="msjErrContainer">
+          <span *ngIf="formRegistro.get('contraseña').dirty && formRegistro.get('contraseña').hasError('required')">La contraseña es requerido.</span>
+          <span *ngIf="formRegistro.get('contraseña').dirty && formRegistro.get('contraseña').hasError('maxlength')">La contraseña debe ser mayor a 5 caracteres.</span>
+          <span *ngIf="formRegistro.get('contraseña').dirty && formRegistro.get('contraseña').hasError('minlength')">La contraseña debe ser menor a 15 caracteres.</span>
+          <span *ngIf="formRegistro.get('contraseña').dirty && formRegistro.get('contraseña').hasError('pattern')">Al menos 1 minuscula, mayuscula y numero</span>
+        </div>
+        <ion-button shape="round" expand="full" type="submit" [disabled]="formRegistro.invalid" class="button">Registrar</ion-button>
+        <p (click) = "mostrarLogin()" class="preguntaSobreCuenta">¿Ya tienes una cuenta? <span>Ingresa</span></p>
+      </form>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

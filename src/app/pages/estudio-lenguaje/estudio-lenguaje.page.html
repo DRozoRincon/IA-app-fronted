@@ -1,0 +1,23 @@
+<app-header titulo="Estudio del lenguaje" href="/aplicacion/tabs/tab3"></app-header>
+
+
+<ion-content>
+    <div id="containerEntendimientoLenguaje">
+        <form class="form">
+            <ion-item>
+              <ion-label position = "floating">Texto</ion-label>
+              <ion-textarea [formControl]="textoEstudioLneguajeData" ></ion-textarea>        
+            </ion-item>
+            <div class="msjErrContainer">
+              <span *ngIf="textoEstudioLneguajeData.dirty && textoEstudioLneguajeData.hasError('required')">El texto es requerido.</span>
+              <span *ngIf="textoEstudioLneguajeData.dirty && textoEstudioLneguajeData.hasError('minlength')">El texto debe ser mayor a 2 caracteres.</span>
+              <span *ngIf="textoEstudioLneguajeData.dirty && textoEstudioLneguajeData.hasError('maxlength')">El texto debe ser menor a 2501 caracteres.</span>
+            </div>
+            <ion-button shape="round" expand="full" type="submit" [disabled]="textoEstudioLneguajeData.invalid" (click)="ibmNTL()" class="button">Obtener información</ion-button>
+        </form>
+    </div>
+    <div class="containerWithModified" *ngIf="contenidoPost.textoPost" [innerHTML] = "contenidoPost.textoPost"></div>
+    <div class="containerWithModified">
+      <ion-button *ngIf="contenidoPost.textoPost" shape="round" expand="full" type="submit" class="button" (click)="publicarPost()">Publicar post</ion-button>
+    </div>
+</ion-content>

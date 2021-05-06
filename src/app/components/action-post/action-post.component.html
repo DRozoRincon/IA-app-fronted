@@ -1,0 +1,6 @@
+<ion-item lines="none">
+  <ion-icon name="heart" [color]="(postFavorito)? 'danger':null" (click) = "cambioDeEstadoDeFavorito()"></ion-icon>
+  <ion-icon  name="location" class="location" color="primary" *ngIf="postData.coords" (click)="mostrarUbicacion()"></ion-icon>
+  <ion-icon *ngIf="!permitirBorrarPost" slot="end" name="bookmark"></ion-icon>
+  <ion-icon *ngIf="permitirBorrarPost" slot="end" name="trash" (click) = "eliminarPost()"></ion-icon>
+</ion-item>

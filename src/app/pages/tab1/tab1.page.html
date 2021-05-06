@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Publicaciones
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color = "light">
+  <!-- Refresher -->
+  <ion-refresher slot="fixed" (ionRefresh)="refrescarPosts($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- Posts -->
+  <app-posts *ngIf="posts" [posts] = "posts"></app-posts>
+  
+  <!-- Infinite scroll -->
+  <ion-infinite-scroll threshold="150px" (ionInfinite)="cargarMasPosts($event)" #infiniteScrollPostsView> <!-- threshold = 100px, es para decir que a 100px del final se ejecute el evento loadData-->
+    <ion-infinite-scroll-content
+      loadingSpinner="circles"
+      loadingText="Cargando">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,30 @@
+#containerEntendimientoLenguaje{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: end;
+}
+
+.form{
+    width: 90%;
+    max-width: 350px;
+}
+
+.form .msjErrContainer{
+    height: 37px;
+    width: 100%;
+    font-size: 13px;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    text-align: center;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    align-items: center;
+    color:  #f44336;
+}
+
+.containerWithModified{
+    width: 90%;
+    margin: 0px auto;
+}

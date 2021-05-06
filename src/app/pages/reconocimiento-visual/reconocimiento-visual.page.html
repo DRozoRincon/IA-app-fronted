@@ -1,0 +1,12 @@
+<app-header titulo="Reconocimiento de imagen" href="/aplicacion/tabs/tab3"></app-header>
+
+<ion-content>
+    <app-camera OneImage = "'true'" (imgsPath) = "gettingImgPathFromComponent($event)"></app-camera>
+    <div class="containerWithModified">
+        <ion-button shape="round" expand="full" [disabled]="imgPath.length == 0 || contenidoPost.textoPost.length != 0" class="button" (click)="reconocimientoImagen()">Obtener información</ion-button>
+    </div>
+    <div class="containerWithModified" *ngIf="contenidoPost.textoPost" [innerHTML] = "contenidoPost.textoPost"></div>
+    <div class="containerWithModified" *ngIf="contenidoPost.textoPost">
+        <ion-button shape="round" expand="full" class="button" (click)="publicarPost()">Publicar post</ion-button>
+    </div>
+</ion-content>

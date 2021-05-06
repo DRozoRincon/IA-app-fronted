@@ -1,0 +1,17 @@
+<app-header titulo="Actualizar datos" href="/aplicacion/tabs/tab3" modal = "true"></app-header>
+
+<ion-content>
+  <div id="content">
+    <form class="form">
+      <ion-item>
+        <ion-label position = "floating">Nombre</ion-label>
+        <ion-input type="text" [formControl]="nombre"></ion-input>
+      </ion-item>
+      <div class="msjErrContainer">
+        <span *ngIf="nombre.dirty && nombre.hasError('minlength')">El nombre de usuario debe ser mayor a 1 caracter.</span>
+        <span *ngIf="nombre.dirty && nombre.hasError('maxlength')">El nombre de usuario debe ser menor a 51 caracteres.</span>
+      </div>
+      <ion-button shape="round" type="submit" [disabled]="nombre.invalid" (click) = "actualizarDatos()" class="button">Actualizar</ion-button>
+    </form>
+  </div>
+</ion-content>

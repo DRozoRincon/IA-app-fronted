@@ -1,0 +1,24 @@
+<app-header *ngIf="header" titulo="Perfil" href="/aplicacion/tabs/tab1" modal = "true"></app-header>
+<ion-content>
+  <!-- Refresher -->
+  <ion-refresher slot="fixed" (ionRefresh)="refrescarPosts($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- Data user -->
+  <div class="avatarContainer">
+    <ion-avatar class="avatar">
+      <img [src] = "'/assets/avatars/' + datosUsuario.avatar" />
+    </ion-avatar>
+    <h1>{{datosUsuario.nombre}}</h1>
+    <h5 class="contacto">{{datosUsuario.email}}</h5>
+  </div>
+  <!-- Posts -->
+  <app-posts *ngIf="posts" [posts] = "posts" profilePosts = "true"></app-posts>
+  <!-- Infinite scroll -->
+  <ion-infinite-scroll threshold="150px" (ionInfinite)="cargarMasPosts($event)" #infiniteScrollUserView> <!-- threshold = 100px, es para decir que a 100px del final se ejecute el evento loadData-->
+    <ion-infinite-scroll-content
+      loadingSpinner="circles"
+      loadingText="Cargando">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

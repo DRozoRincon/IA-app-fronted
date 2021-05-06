@@ -1,0 +1,9 @@
+<ion-header no-border> <!-- No border es para especificar que el header no tenga border-->
+  <ion-toolbar>
+    <ion-buttons slot="start"> <!-- ion-buttons para agregar en el conjunto/s de botones--> <!--slot Parahacer que ese elemento este de primero en el toolbar-->
+      <ion-back-button *ngIf="modal" [defaultHref]="href" (click)="modalCtrl.dismiss()"></ion-back-button> <!-- boton para regresar en este caso por default a '/'-->
+      <ion-back-button *ngIf="!modal" [defaultHref]="href"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="primary" id="titulo" text-capitalize>{{titulo}}</ion-title> <!--text-capitalize es para poner en mayuscul las letas que comienzan cada palabra-->
+  </ion-toolbar>
+</ion-header>

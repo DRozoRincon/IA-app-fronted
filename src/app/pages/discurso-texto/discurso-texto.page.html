@@ -1,0 +1,27 @@
+<app-header titulo="Discurso a texto" href="/aplicacion/tabs/tab3"></app-header>
+
+<ion-content>
+    <div class="containerWithModified centerContent actionAudioButtons">
+        <ion-button [disabled] = "recording" (click) = "empezarGrabacion()">Grabar</ion-button>
+        <ion-button [disabled] = "!recording" (click) = "detenerGrabacion()">Detener</ion-button>
+    </div>
+    <div class="containerWithModified centerContent">
+        <p class="textCenter">Por favor selecciona <span *ngIf="audioFileCreted">el audio generedo <strong>audioIApp.wav</strong> o</span> cualquier archivo de audio</p>
+        <div class="custom-input-file col-md-6 col-sm-6 col-xs-6">
+            <input type="file" accept="audio/wav" id="fichero-tarifas" class="input-file" (change)="obtenerAudio($event)">
+            <ion-icon name="download"></ion-icon> Cargar archivo
+        </div>
+    </div>
+    <div class="containerWithModified" *ngIf="audioName">
+        <ion-button shape="round" expand="full" class="button" (click)="textoToDiscurso()">Obtener información</ion-button>
+    </div>
+    <div class="containerWithModified centerContent" *ngIf="audioName">
+        <p>El audio actualmente seleccionado es: <strong>{{audioName}}</strong></p>
+    </div>
+    <div class="containerWithModified" *ngIf="contenidoPost.textoPost" [innerHTML] = "contenidoPost.textoPost"></div>
+    <div class="containerWithModified" *ngIf="contenidoPost.textoPost">
+        <ion-button shape="round" expand="full" class="button" (click)="publicarPost()">Publicar post</ion-button>
+    </div>
+    <img id="loading" *ngIf="recording"src="assets/loading.svg"/>
+</ion-content>
+ 

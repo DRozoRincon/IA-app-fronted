@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Perfil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <app-user-view [datosUsuario] = "datosUsuario"></app-user-view>
+
+  <ion-fab horizontal="end" vertical="bottom"  slot="fixed"b> 
+    <ion-fab-button> <!-- boton principal-->
+      <ion-icon name="apps"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top"> <!-- lista de botones que se muestran al hacer click en boton principal -->
+      <ion-fab-button color="light" (click) = "modalActualizarDatos()"><ion-icon  name="settings-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button color="light" (click) = "cerrarSesion()"><ion-icon  name="log-out-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

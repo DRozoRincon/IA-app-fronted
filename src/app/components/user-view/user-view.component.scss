@@ -1,0 +1,17 @@
+.avatarContainer{
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.avatar{
+    width: 200px;
+    height: 200px
+}
+
+.contacto{
+    color: #777;
+}
